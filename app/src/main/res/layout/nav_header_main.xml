@@ -25,10 +25,10 @@
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="e-Tracking"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" android:textColor="@color/colorTextIcons"
-            android:textSize="18sp"/>
+            android:textSize="18sp" android:id="@+id/tvNomeUsuario"/>
 
     <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvEmailUsuarioLogado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sua carga na sua mão" android:textColor="@color/colorSecondaryText"

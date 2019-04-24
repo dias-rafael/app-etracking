@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.Sobre"
-        android:screenOrientation="portrait" >
+        android:screenOrientation="portrait"
+        android:background="@drawable/gradient_background">
 
     <ImageView
             android:id="@+id/ivSplash"

@@ -8,7 +8,8 @@
         tools:context=".ui.LoginActivity"
         tools:layout_editor_absoluteY="81dp"
         android:screenOrientation="portrait"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme"
+        android:background="@drawable/gradient_background">
 
     <EditText
             android:layout_width="0dp"
@@ -17,7 +18,7 @@
             android:ems="10"
             android:id="@+id/etEmail"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmailUsuario" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"/>
     <EditText
@@ -34,10 +35,10 @@
             android:text="E-mail"
             android:layout_width="368dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
+            android:id="@+id/tvEmailUsuario"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/textView"/>
     <Button
             android:text="Logar"
             android:layout_height="wrap_content"
@@ -64,4 +65,19 @@
             app:layout_constraintTop_toBottomOf="@+id/etEmail" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_account_circle_black_48dp"
+            android:id="@+id/ivLogin" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+    <TextView
+            android:text="Bem Vindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ivLogin" android:textColor="@color/colorPrimaryText"/>
 </android.support.constraint.ConstraintLayout>

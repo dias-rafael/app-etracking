@@ -6,6 +6,7 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toast_usuario_incorreto">E-mail inválido</string>
+    <string name="toast_senha_invalida">Informe a senha</string>
+    <string name="toast_campos_em_branco">Preencha todos os campos</string>
 </resources>

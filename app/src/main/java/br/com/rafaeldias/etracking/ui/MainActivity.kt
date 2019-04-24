@@ -15,6 +15,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.content.DialogInterface
+import android.widget.Toast
+import br.com.rafaeldias.etracking.R
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.android.synthetic.main.nav_header_main.view.*
+import android.widget.TextView
 
 
 
@@ -45,6 +51,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById(br.com.rafaeldias.etracking.R.id.nvMenu) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+
+        // Obtém a referência da view de cabeçalho
+        val headerView = navigationView.getHeaderView(0)
+
+        var emailUsuario = intent!!.getStringExtra("emailUsuario")
+
+        // Obtém a referência do nome do usuário e altera seu nome
+        val txtEmailUsuarioLogado = headerView.findViewById(R.id.tvEmailUsuarioLogado) as TextView
+        txtEmailUsuarioLogado.text = emailUsuario
+
     }
 
     override fun onBackPressed() {
@@ -96,5 +112,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         ft.replace(br.com.rafaeldias.etracking.R.id.content_main, fragment)
         ft.commit()
     }
-
 }
