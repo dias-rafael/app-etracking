@@ -26,14 +26,14 @@ class SplashActivity : AppCompatActivity() {
         if (isFirstOpen) {
             showSplash()
         } else {
-            //showLogin()
+            showLogin()
         }
     }
 
     private fun showLogin() {
-        //val nextScreen = Intent(this@SplashActivity, LoginActivity::class.java)
-        //startActivity(nextScreen)
-        //finish()
+        val nextScreen = Intent(this@SplashActivity, LoginActivity::class.java)
+        startActivity(nextScreen)
+        finish()
     }
 
     private fun showSplash() {
