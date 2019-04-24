@@ -14,6 +14,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.content.DialogInterface
+
+
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -76,9 +79,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
 
         when (item.getItemId()) {
-            br.com.rafaeldias.etracking.R.id.nav_incluirnf -> changeFragment(BlankFragment())
-            br.com.rafaeldias.etracking.R.id.nav_sair -> startActivity(Intent(this, LoginActivity::class.java))
-            br.com.rafaeldias.etracking.R.id.nav_sobre -> startActivity(Intent(this, SobreActivity::class.java))
+            br.com.rafaeldias.etracking.R.id.nav_incluirnf -> changeFragment(IncluirNF())
+            br.com.rafaeldias.etracking.R.id.nav_listarnf -> changeFragment(ListarNF())
+            br.com.rafaeldias.etracking.R.id.nav_registrarstatus -> changeFragment(RegistrarStatus())
+            br.com.rafaeldias.etracking.R.id.nav_sobre -> changeFragment(Sobre())
+            br.com.rafaeldias.etracking.R.id.nav_sair -> finish()
         }
 
         val drawer = findViewById(br.com.rafaeldias.etracking.R.id.drawer_layout) as DrawerLayout
@@ -91,4 +96,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         ft.replace(br.com.rafaeldias.etracking.R.id.content_main, fragment)
         ft.commit()
     }
+
 }

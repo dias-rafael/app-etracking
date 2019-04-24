@@ -5,9 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.SplashActivity"
-        android:background="@drawable/gradient_background"
-        android:theme="@style/AppTheme.NoActionBar"
+        tools:context=".ui.Sobre"
         android:screenOrientation="portrait" >
 
     <ImageView
@@ -28,7 +26,7 @@
             android:layout_marginStart="8dp" android:layout_width="wrap_content"
             android:textColor="@color/colorTextIcons" android:textStyle="bold" android:textSize="18sp"/>
     <TextView
-            android:text="by Rafael Dias"
+            android:text="Versão 1.0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvDev" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
@@ -44,5 +42,42 @@
             android:layout_marginRight="8dp" android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@+id/tvSplash" android:textSize="14sp"
             android:textColor="@color/colorSecondaryText"/>
+    <TextView
+            android:text="FIAP - 16MOB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTurma" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSlogan" android:textColor="@color/colorPrimaryText"/>
+    <TextView
+            android:text="Avaliação Final Android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvCurso" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTurma" android:textColor="@color/colorPrimaryText"/>
+    <TextView
+            android:text="Rafael dos Santos Dias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAluno" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurso" android:textColor="@color/colorPrimaryText"/>
+    <TextView
+            android:text="RM: 330518"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvRM" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAluno" android:textColor="@color/colorPrimaryText"/>
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="22sp"
+            android:text="Sobre" />
 </android.support.constraint.ConstraintLayout>
