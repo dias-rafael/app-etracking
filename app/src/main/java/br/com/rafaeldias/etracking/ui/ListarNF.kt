@@ -12,6 +12,7 @@ import br.com.rafaeldias.etracking.model.Notas
 import kotlinx.android.synthetic.main.content_nf.*
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 
