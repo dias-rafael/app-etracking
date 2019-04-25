@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import br.com.rafaeldias.etracking.R
-import br.com.rafaeldias.etracking.model.User
 import br.com.rafaeldias.etracking.utils.ValidaEmail
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -29,13 +27,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btLogar.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
+            if (!ValidaEmail.isEmailValid(etNumeroNF.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {
-                if(etSenha.text.toString() != "") {
+                if(etMercadoria.text.toString() != "") {
                     mAuth.signInWithEmailAndPassword(
-                        etEmail.text.toString(),
-                        etSenha.text.toString()
+                        etNumeroNF.text.toString(),
+                        etMercadoria.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
                             GravaBaseLocal()
@@ -72,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
         val BD = "User"
         val editor = getSharedPreferences(BD, Context.MODE_PRIVATE).edit()
 
-        editor.putString("email", etEmail.text.toString())
+        editor.putString("email", etNumeroNF.text.toString())
         editor.commit()
     }
 
@@ -81,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
         val prefs = getSharedPreferences(BD, Context.MODE_PRIVATE)
         val user = prefs.getString("email", null)
         if (user != null) {
-            etEmail.setText(user)
+            etNumeroNF.setText(user)
         }
     }
 }

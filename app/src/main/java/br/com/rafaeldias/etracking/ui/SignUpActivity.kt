@@ -20,14 +20,14 @@ class SignUpActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        btCriar.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
+        btCadastrar.setOnClickListener {
+            if (!ValidaEmail.isEmailValid(etNumeroNF.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {
-                if ((etSenha.text.toString() != "") && (etNome.text.toString() != "") && (etTelefone.text.toString() != "")) {
+                if ((etMercadoria.text.toString() != "") && (etCNPJRemetente.text.toString() != "") && (etTelefone.text.toString() != "")) {
                     mAuth.createUserWithEmailAndPassword(
-                        etEmail.text.toString(),
-                        etSenha.text.toString()
+                        etNumeroNF.text.toString(),
+                        etMercadoria.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
                             salvarNoRealtimeDatabase()
@@ -47,7 +47,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun salvarNoRealtimeDatabase() {
-        val user = User(etNome.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
+        val user = User(etCNPJRemetente.text.toString(), etNumeroNF.text.toString(), etTelefone.text.toString())
         FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
