@@ -7,10 +7,13 @@ import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import br.com.rafaeldias.etracking.R
 import android.widget.TextView
+import br.com.rafaeldias.etracking.adapter.NotasAdapter
+import kotlinx.android.synthetic.main.content_nf.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -51,7 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Obtém a referência do nome do usuário e altera seu nome
         val txtEmailUsuarioLogado = headerView.findViewById(R.id.tvEmailUsuarioLogado) as TextView
         txtEmailUsuarioLogado.text = emailUsuario
-
 
     }
 
