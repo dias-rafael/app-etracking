@@ -1,34 +1,22 @@
 package br.com.rafaeldias.etracking.ui
 
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
-import android.content.Intent
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.content.DialogInterface
-import android.widget.Button
-import android.widget.Toast
 import br.com.rafaeldias.etracking.R
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
-import kotlinx.android.synthetic.main.nav_header_main.view.*
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_incluirnf.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var emailUsuario: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Obtém a referência do nome do usuário e altera seu nome
         val txtEmailUsuarioLogado = headerView.findViewById(R.id.tvEmailUsuarioLogado) as TextView
         txtEmailUsuarioLogado.text = emailUsuario
+
 
     }
 
@@ -110,11 +99,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    fun changeFragment(fragment: Fragment) {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(br.com.rafaeldias.etracking.R.id.content_main, fragment)
         ft.commit()
     }
-
 
 }
