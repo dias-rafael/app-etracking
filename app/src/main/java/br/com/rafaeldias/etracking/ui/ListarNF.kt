@@ -12,9 +12,8 @@ import br.com.rafaeldias.etracking.model.Notas
 import kotlinx.android.synthetic.main.content_nf.*
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.card_nota.*
 
 
 public class ListarNF : Fragment(){
@@ -25,7 +24,11 @@ public class ListarNF : Fragment(){
 
     @Override
     override fun onCreateView(inflater:LayoutInflater,container:ViewGroup?,
-                              savedInstanceState:Bundle?):View? = inflater.inflate(R.layout.fragment_listarnf, container, false)
+                              savedInstanceState:Bundle?):View? {
+        // Inflate the layout for this fragment
+        var view = inflater.inflate(R.layout.fragment_listarnf, container, false)
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,5 +53,4 @@ public class ListarNF : Fragment(){
                 rvNotas.adapter!!.notifyDataSetChanged()
             })
     }
-
 }

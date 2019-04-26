@@ -38,12 +38,12 @@ class IncluirNF : Fragment(){
         builder = AlertDialog.Builder(activity)
 
         btCadastrar.setOnClickListener(){
-            if ((etCNPJRemetente.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etNumeroNF.text.toString() != "")) {
+            if ((etCNPJRemetente.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etMercadoria.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
                 val db = AppDatabase.getDatabase(activity!!.applicationContext)
                 val Usuario = mAuth.currentUser
                 Usuario?.let {
                     val emailUsuario = Usuario.email
-                    val notasObj = Notas(0,etCNPJRemetente.text.toString(),etNumeroNF.text.toString(),etMercadoria.text.toString(),emailUsuario.toString())
+                    val notasObj = Notas(0,etCNPJRemetente.text.toString(),etNumeroNF.text.toString(),etMercadoria.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString())
                     cadastrarNF(db!!).execute(notasObj)
                     Toast.makeText(context, "Nota Cadastrada", Toast.LENGTH_LONG).show()
                     Handler().postDelayed({

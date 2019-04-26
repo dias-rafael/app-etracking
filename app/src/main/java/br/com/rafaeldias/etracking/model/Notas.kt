@@ -10,21 +10,28 @@ class Notas {
     var cnpjremetente: String? = null
     var numeronf: String? = null
     var mercadoria: String? = null
+    var telefoneremetente: String? = null
+    var enderecoentrega: String? = null
     var usuarioinc: String? = null
 
     constructor() {}
 
-    constructor(cnpjremetente: String, numeronf: String, mercadoria: String) {
+    constructor(cnpjremetente: String, numeronf: String, mercadoria: String, usuarioinc: String, telefoneremetente: String, enderecoentrega: String) {
         this.cnpjremetente = cnpjremetente
         this.numeronf = numeronf
         this.mercadoria = mercadoria
+        this.telefoneremetente = telefoneremetente
+        this.enderecoentrega = enderecoentrega
+        this.usuarioinc = usuarioinc
     }
 
-    constructor(id: Long, cnpjremetente: String, numeronf: String, mercadoria: String, usuarioinc: String) {
+    constructor(id: Long, cnpjremetente: String, numeronf: String, mercadoria: String, usuarioinc: String, telefoneremetente: String, enderecoentrega: String) {
         this.id = id
         this.cnpjremetente = cnpjremetente
         this.numeronf = numeronf
         this.mercadoria = mercadoria
+        this.telefoneremetente = telefoneremetente
+        this.enderecoentrega = enderecoentrega
         this.usuarioinc = usuarioinc
     }
 }
