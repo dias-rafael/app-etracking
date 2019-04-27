@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import br.com.rafaeldias.etracking.R
 import br.com.rafaeldias.etracking.model.Notas
+import kotlinx.android.synthetic.main.card_nota.view.*
 
-class NotasAdapter(var notas: List<Notas>) : RecyclerView.Adapter<NotasAdapter.NotasViewHolder>() {
+class NotasAdapter(var notas: List<Notas>, val clickListener: (Notas) -> Unit) : RecyclerView.Adapter<NotasAdapter.NotasViewHolder>() {
 
     override fun getItemCount(): Int {
         return notas.size
@@ -25,19 +26,33 @@ class NotasAdapter(var notas: List<Notas>) : RecyclerView.Adapter<NotasAdapter.N
     }
 
     override fun onBindViewHolder(holder: NotasViewHolder, i: Int) {
+        (holder as NotasViewHolder).bind(notas[i], clickListener)
         val notas = notas[i]
-        holder.tvNota.text = notas.numeronf
+        /*
+        holder.tvtvNota.text = notas.numeronf
         holder.tvMercadoria.text = notas.mercadoria
         holder.tvCNPJRemetente.text = notas.cnpjremetente
         holder.tvTelefone.text = notas.telefoneremetente
         holder.tvEndereco.text = notas.enderecoentrega
+        */
+
+
     }
 
     class NotasViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var tvNota: TextView = v.findViewById(R.id.tvNota)
-        var tvMercadoria: TextView = v.findViewById(R.id.tvMercadoria)
-        var tvCNPJRemetente: TextView = v.findViewById(R.id.tvCNPJRemetente)
-        var tvTelefone: TextView = v.findViewById(R.id.tvTelefone)
-        var tvEndereco: TextView = v.findViewById(R.id.tvEndereco)
+        fun bind(part: Notas, clickListener: (Notas) -> Unit) {
+            itemView.tvNota.text = part.numeronf
+            itemView.tvMercadoria.text = part.mercadoria
+            itemView.tvCNPJRemetente.text = part.cnpjremetente
+            itemView.tvEndereco.text = part.enderecoentrega
+            itemView.tvTelefone.text = part.telefoneremetente
+            /*
+            var tvMercadoria: TextView = itemView.findViewById(R.id.tvMercadoria)
+            var tvCNPJRemetente: TextView = itemView.findViewById(R.id.tvCNPJRemetente)
+            var tvTelefone: TextView = itemView.findViewById(R.id.tvTelefone)
+            var tvEndereco: TextView = itemView.findViewById(R.id.tvEndereco)
+            */
+            itemView.setOnClickListener { clickListener(part)}
+        }
     }
 }

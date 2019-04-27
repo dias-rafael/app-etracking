@@ -8,7 +8,7 @@ import br.com.rafaeldias.etracking.model.Notas
 @Dao
 interface NotasDao {
 
-    @Query("SELECT * FROM Notas")
+    @Query("SELECT * FROM Notas order by numeronf")
     fun all(): LiveData<List<Notas>>
 
     @Insert
