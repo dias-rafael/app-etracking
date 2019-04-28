@@ -45,6 +45,14 @@ public class EditarNF : Fragment(){
                 startActivity(intent)
             }
         })
+
+        ivMaps.setOnClickListener({
+            var end: EditText = view.findViewById(R.id.etEnderecoEntrega)
+            val intent = Intent(activity, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.putExtra("endereco",end.toString())
+            startActivity(intent)
+        })
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
