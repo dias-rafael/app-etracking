@@ -38,7 +38,7 @@ public class EditarNF : Fragment(){
 
         ivCall.setOnClickListener({
             var uri = Uri.parse(tel.text.toString())
-            Toast.makeText(context, tel.text.toString(), Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, tel.text.toString(), Toast.LENGTH_LONG).show()
             val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uri))
             if (ActivityCompat.checkSelfPermission(context!!,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 1)
