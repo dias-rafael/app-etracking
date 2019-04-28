@@ -34,6 +34,8 @@ public class EditarNF : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var tel: EditText = view.findViewById(R.id.etTelefoneContato)
+        var end: EditText = view.findViewById(R.id.etEnderecoEntrega)
+
         ivCall.setOnClickListener({
             var uri = Uri.parse(tel.text.toString())
             Toast.makeText(context, tel.text.toString(), Toast.LENGTH_LONG).show()
@@ -47,10 +49,10 @@ public class EditarNF : Fragment(){
         })
 
         ivMaps.setOnClickListener({
-            var end: EditText = view.findViewById(R.id.etEnderecoEntrega)
-            val intent = Intent(activity, MainActivity::class.java)
+            var endereco = end.text.toString()
+            val intent = Intent(activity, MapsActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.putExtra("endereco",end.toString())
+            intent.putExtra("endereco",endereco)
             startActivity(intent)
         })
     }

@@ -8,12 +8,14 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import android.widget.EditText
 import android.widget.Toast
 import br.com.rafaeldias.etracking.R
 import br.com.rafaeldias.etracking.utils.Permissao
+
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -21,9 +23,10 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_editarnf.*
 import java.util.*
 
-class Mapa : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
@@ -32,6 +35,8 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationManager: LocationManager
 
     private lateinit var locationListener: LocationListener
+
+    private lateinit  var enderecoEntrega: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +49,15 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        enderecoEntrega = intent!!.getStringExtra("endereco")
     }
 
     private fun initLocationListener() {
-        locationListener = object : LocationListener{
+        locationListener = object : LocationListener {
             override fun onLocationChanged(location: Location?) {
-                val minhaPosicao = LatLng(location?.latitude!!,location?.longitude)
-                addMarcador(minhaPosicao,"Mão to no Maps")
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(minhaPosicao,16f))
+                //val minhaPosicao = LatLng(location?.latitude!!,location?.longitude)
+                //addMarcador(minhaPosicao,"Meu local")
+                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(minhaPosicao,16f))
             }
 
             override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
@@ -101,13 +107,6 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(latLng).title(titulo))
     }
 
-    private fun addMarcadorFIAP(latitude: Double, longitude: Double, titulo: String) {
-        val geocoder = Geocoder(applicationContext, Locale.getDefault())
-        val endereco = geocoder.getFromLocation(latitude,longitude,1)
-        val latLng = LatLng(latitude,longitude)
-        //addMarcador(it, endereco[0].subLocality) //rodar em modo debug para ver todas as opções
-        mMap.addMarker(MarkerOptions().position(latLng).title(titulo).snippet(endereco[0].getAddressLine(0)))
-    }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -115,46 +114,23 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         initLocationListener()
         requestLocationUpdates()
 
-        // Add a marker in Sydney and move the camera
-        val fiappaulistaLat = -23.563805
-        val fiappaulistaLon = -46.652485
-        val fiappaulistaTit = "Fiap Paulista"
-
-        val fiapaclimacaoLat = -23.573140
-        val fiapaclimacaoLon = -46.623823
-        val fiapaclimacaoTit = "Fiap Aclimação"
-
-        val fiapvilaolimpiaLat = -23.595079
-        val fiapvilaolimpiaLon = -46.685290
-        val fiapvilaolimpiaTit = "Fiap Vila Olímpia"
-
-        val fiappaulista = LatLng(fiappaulistaLat,fiappaulistaLon)
-
-        //addMarcadorFIAP(fiappaulistaLat,fiappaulistaLon,fiappaulistaTit)
-        //addMarcadorFIAP(fiapaclimacaoLat,fiapaclimacaoLon,fiapaclimacaoTit)
-        //addMarcadorFIAP(fiapvilaolimpiaLat,fiapvilaolimpiaLon,fiapvilaolimpiaTit)
-
-        mMap.setOnMapClickListener {
-            val geocoder = Geocoder(applicationContext, Locale.getDefault())
-            val endereco = geocoder.getFromLocation(it.latitude,it.longitude,1)
-            //addMarcador(it, endereco[0].subLocality) //rodar em modo debug para ver todas as opções
-            addMarcador(it, endereco[0].getAddressLine(0))
-        }
-
-        //mMap.addMarker(MarkerOptions().position(fiappaulista).title("FIAP Paulista").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)))
-        //mMap.addMarker(MarkerOptions().position(fiapaclimacao).title("FIAP Aclimação").icon(BitmapDescriptorFactory.fromResource(R.drawable.marcador)))
-        //mMap.addMarker(MarkerOptions().position(fiapvilaolimpia).title("FIAP Vila Olímpia").snippet("Clique aqui para remover o ponto"))
+        val geocoder = Geocoder(applicationContext, Locale.getDefault())
+        //val endereco = geocoder.getFromLocation(it.latitude,it.longitude,1)
+        val endereco = geocoder.getFromLocationName(enderecoEntrega,1)
+        //addMarcador(it, endereco[0].subLocality) //rodar em modo debug para ver todas as opções
+        val latitude = endereco[0].latitude
+        val longitude = endereco[0].longitude
+        //Toast.makeText(applicationContext, LatLng(latitude,longitude).toString(), Toast.LENGTH_LONG).show()
+        addMarcador(LatLng(latitude,longitude), endereco[0].getAddressLine(0))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitude,longitude),16f))
 
         val circulo = CircleOptions()
-        circulo.center(fiappaulista)
-        circulo.radius(400.0)
+        circulo.center(LatLng(latitude,longitude))
+        circulo.radius(200.0)
         circulo.fillColor(Color.argb(128,0,51,102))
         circulo.strokeWidth(10f)
         circulo.strokeColor(Color.argb(128,0,51,102))
 
         mMap.addCircle(circulo)
-
-
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fiappaulista,10f))
     }
 }
