@@ -30,16 +30,7 @@ class Sobre : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        tvAluno.setOnClickListener({
-            var uri = Uri.parse("(13)99124-5598")
-            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uri))
-            if (ActivityCompat.checkSelfPermission(context!!,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 1)
-            } else {
-                Log.e("DB", "CALL PERMISSION GRANTED")
-                startActivity(intent)
-            }
-        })
+
 
     }
 }

@@ -8,9 +8,6 @@
         <item
                 android:id="@+id/nav_listarnf"
                 android:title="Listar Notas" />
-        <item
-                android:id="@+id/nav_registrarstatus"
-                android:title="Registrar Status" />
     </group>
 
     <group android:checkableBehavior="single">

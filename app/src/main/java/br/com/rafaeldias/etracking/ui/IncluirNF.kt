@@ -1,7 +1,6 @@
 package br.com.rafaeldias.etracking.ui;
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle;
@@ -10,10 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView
 import android.widget.Toast
 import br.com.rafaeldias.etracking.R
-import br.com.rafaeldias.etracking.dao.NotasDao
 import br.com.rafaeldias.etracking.database.AppDatabase
 import br.com.rafaeldias.etracking.model.Notas
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +34,7 @@ class IncluirNF : Fragment(){
         mAuth = FirebaseAuth.getInstance()
         builder = AlertDialog.Builder(activity)
 
-        btCadastrar.setOnClickListener(){
+        btAlterar.setOnClickListener(){
             if ((etCNPJRemetente.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etMercadoria.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
                 val db = AppDatabase.getDatabase(activity!!.applicationContext)
                 val Usuario = mAuth.currentUser

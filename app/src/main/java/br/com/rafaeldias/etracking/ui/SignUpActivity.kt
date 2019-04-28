@@ -20,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        btCadastrar.setOnClickListener {
+        btAlterar.setOnClickListener {
             if (!ValidaEmail.isEmailValid(etNumeroNF.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {

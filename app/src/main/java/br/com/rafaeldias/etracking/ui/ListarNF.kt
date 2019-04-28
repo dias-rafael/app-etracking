@@ -12,14 +12,6 @@ import br.com.rafaeldias.etracking.model.Notas
 import kotlinx.android.synthetic.main.content_nf.*
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
-import android.support.v4.app.FragmentManager
-import android.widget.Toast
-import kotlinx.android.synthetic.main.card_nota.*
-import kotlinx.android.synthetic.main.fragment_listarnf.*
-import android.support.v7.widget.RecyclerView
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.Switch
 
 
 public class ListarNF : Fragment(){
@@ -64,7 +56,7 @@ public class ListarNF : Fragment(){
     private fun partItemClicked(partItem : Notas) {
         //Toast.makeText(context, "Clicked: ${partItem.id}", Toast.LENGTH_LONG).show()
 
-        val ft: Fragment = RegistrarStatus()
+        val ft: Fragment = EditarNF()
         val bundle = Bundle()
         bundle.putString("idNota",partItem.id.toString())
         //ft.arguments = bundle

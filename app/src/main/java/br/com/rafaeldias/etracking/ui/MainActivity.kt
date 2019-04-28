@@ -7,13 +7,10 @@ import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import br.com.rafaeldias.etracking.R
 import android.widget.TextView
-import br.com.rafaeldias.etracking.adapter.NotasAdapter
-import kotlinx.android.synthetic.main.content_nf.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -91,7 +88,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.getItemId()) {
             br.com.rafaeldias.etracking.R.id.nav_incluirnf -> changeFragment(IncluirNF())
             br.com.rafaeldias.etracking.R.id.nav_listarnf -> changeFragment(ListarNF())
-            br.com.rafaeldias.etracking.R.id.nav_registrarstatus -> changeFragment(RegistrarStatus())
             br.com.rafaeldias.etracking.R.id.nav_sobre -> changeFragment(Sobre())
             br.com.rafaeldias.etracking.R.id.nav_sair -> finish()
         }
