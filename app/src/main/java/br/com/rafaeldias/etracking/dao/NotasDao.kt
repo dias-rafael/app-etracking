@@ -11,13 +11,15 @@ interface NotasDao {
     @Query("SELECT * FROM Notas order by numeronf")
     fun all(): LiveData<List<Notas>>
 
-    @Insert
+    @Insert(onConflict = REPLACE)
     fun add(notas: Notas)
 
-    @Update(onConflict = REPLACE)
-    fun update(notas: Notas)
+    @Update
+    fun upd(notas: Notas)
 
     @Query("DELETE FROM Notas where id = :id")
     fun del(id: Long)
 
+    @Query("SELECT * FROM Notas where id = :id")
+    fun buscaNF(id: Long): Notas
 }

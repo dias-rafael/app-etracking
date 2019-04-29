@@ -9,6 +9,7 @@
     <string name="toast_usuario_incorreto">E-mail inválido</string>
     <string name="toast_senha_invalida">Informe a senha</string>
     <string name="toast_campos_em_branco">Preencha todos os campos</string>
+    <string name="toast_nf_nao_encontrada">Erro ao localizar a NF</string>
 
     <string name="google_maps_key">AIzaSyDNCv9MKeL7DSWHdbd0Hi2L-Q9CzmS1ExA</string>
     <string name="title_activity_maps">Map</string>

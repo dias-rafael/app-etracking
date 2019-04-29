@@ -59,6 +59,11 @@ public class ListarNF : Fragment(){
         val ft: Fragment = EditarNF()
         val bundle = Bundle()
         bundle.putString("idNota",partItem.id.toString())
+        bundle.putString("cnpjRemetente",partItem.cnpjremetente.toString())
+        bundle.putString("numeroNF",partItem.numeronf.toString())
+        bundle.putString("mercadoria",partItem.mercadoria.toString())
+        bundle.putString("enderecoEntrega",partItem.enderecoentrega.toString())
+        bundle.putString("telefoneContato",partItem.telefoneremetente.toString())
         //ft.arguments = bundle
         ft.setArguments(bundle)
         val fragmentTransaction = fragmentManager!!.beginTransaction()
