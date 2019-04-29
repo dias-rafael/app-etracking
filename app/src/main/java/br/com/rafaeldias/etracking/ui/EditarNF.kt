@@ -1,5 +1,6 @@
 package br.com.rafaeldias.etracking.ui;
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -25,11 +26,12 @@ import kotlinx.android.synthetic.main.fragment_editarnf.etEnderecoEntrega
 import kotlinx.android.synthetic.main.fragment_editarnf.etMercadoria
 import kotlinx.android.synthetic.main.fragment_editarnf.etNumeroNF
 import kotlinx.android.synthetic.main.fragment_editarnf.etTelefoneContato
-import kotlinx.android.synthetic.main.fragment_incluirnf.*
 
 public class EditarNF : Fragment(){
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var builder: AlertDialog.Builder
+    private lateinit var notasObj: Notas
 
     private var idNota: String = ""
     private var cnpjRemetente: String = ""
@@ -37,6 +39,14 @@ public class EditarNF : Fragment(){
     private var mercadoria: String = ""
     private var enderecoEntrega: String = ""
     private var telefoneContato: String = ""
+
+    private lateinit var cnpj: EditText
+    private lateinit var nf: EditText
+    private lateinit var merc: EditText
+    private lateinit var tel: EditText
+    private lateinit var end: EditText
+    private  var emailUsuario: String? = ""
+
 
     @Override
     override fun onCreateView(inflater:LayoutInflater,container:ViewGroup?,
@@ -57,13 +67,23 @@ public class EditarNF : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        mAuth = FirebaseAuth.getInstance()
+        builder = AlertDialog.Builder(activity)
+        //Toast.makeText(context, idNota, Toast.LENGTH_LONG).show()
+        val Usuario = mAuth.currentUser
+        emailUsuario = Usuario!!.email
+
         etCNPJRemetente.setText(cnpjRemetente)
         etNumeroNF.setText(numeroNF)
         etMercadoria.setText(mercadoria)
         etTelefoneContato.setText(telefoneContato)
         etEnderecoEntrega.setText(enderecoEntrega)
-        var tel: EditText = view.findViewById(R.id.etTelefoneContato)
-        var end: EditText = view.findViewById(R.id.etEnderecoEntrega)
+        cnpj = view.findViewById(R.id.etCNPJRemetente)
+        nf = view.findViewById(R.id.etNumeroNF)
+        merc = view.findViewById(R.id.etMercadoria)
+        tel = view.findViewById(R.id.etTelefoneContato)
+        end = view.findViewById(R.id.etEnderecoEntrega)
 
         ivCall.setOnClickListener({
             var uri = Uri.parse(tel.text.toString())
@@ -84,17 +104,13 @@ public class EditarNF : Fragment(){
             intent.putExtra("endereco",endereco)
             startActivity(intent)
         })
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        mAuth = FirebaseAuth.getInstance()
         super.onActivityCreated(savedInstanceState)
-        //Toast.makeText(context, idNota, Toast.LENGTH_LONG).show()
-        val Usuario = mAuth.currentUser
-        val emailUsuario = Usuario!!.email
         val db = AppDatabase.getDatabase(activity!!.applicationContext)
-
-        val notasObj = Notas(idNota.toLong(),etCNPJRemetente.text.toString(),etNumeroNF.text.toString(),etMercadoria.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString())
+        notasObj = Notas(idNota.toLong(),"","","","","","")
 
         btExcluir.setOnClickListener(){
             if (idNota != "") {
@@ -114,7 +130,8 @@ public class EditarNF : Fragment(){
         }
 
         btAlterar.setOnClickListener() {
-            if ((etCNPJRemetente.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etMercadoria.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
+            if ((cnpj.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etMercadoria.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
+                //Toast.makeText(context, cnpj.text.toString(), Toast.LENGTH_LONG).show()
                 alterarNF(db!!).execute(notasObj)
                 Toast.makeText(context, "Nota Alterada", Toast.LENGTH_LONG).show()
             } else {
@@ -139,9 +156,13 @@ public class EditarNF : Fragment(){
 
     private inner class alterarNF internal constructor(appDatabase: AppDatabase) : AsyncTask<Notas, Void, String>() {
         private val db: AppDatabase = appDatabase
-
+        val cnpjnovo = cnpj.text.toString()
+        val nfnovo = nf.text.toString()
+        val mercnovo = merc.text.toString()
+        val telnovo = tel.text.toString()
+        val endnovo = end.text.toString()
         override fun doInBackground(vararg params: Notas): String {
-            db.NotasDao().add(params[0])
+            db.NotasDao().atualizaNF(params[0].id,cnpjnovo,nfnovo,mercnovo,emailUsuario,telnovo,endnovo)
             return ""
         }
 

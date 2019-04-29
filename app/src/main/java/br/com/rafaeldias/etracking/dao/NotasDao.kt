@@ -22,4 +22,7 @@ interface NotasDao {
 
     @Query("SELECT * FROM Notas where id = :id")
     fun buscaNF(id: Long): Notas
+
+    @Query("UPDATE Notas SET numeronf = :numeronf, cnpjremetente = :cnpjremetente, mercadoria = :mercadoria, telefoneremetente = :telefoneremetente, enderecoentrega = :enderecoentrega, usuarioinc =:usuarioinc where id = :id")
+    fun atualizaNF(id: Long, cnpjremetente: String?, numeronf: String?, mercadoria: String?, usuarioinc: String?, telefoneremetente: String?, enderecoentrega: String?)
 }
