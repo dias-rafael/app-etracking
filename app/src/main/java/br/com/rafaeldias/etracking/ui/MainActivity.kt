@@ -1,5 +1,7 @@
 package br.com.rafaeldias.etracking.ui
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -11,6 +13,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import br.com.rafaeldias.etracking.R
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -90,6 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             br.com.rafaeldias.etracking.R.id.nav_listarnf -> changeFragment(ListarNF())
             br.com.rafaeldias.etracking.R.id.nav_sobre -> changeFragment(Sobre())
             br.com.rafaeldias.etracking.R.id.nav_sair -> finish()
+            br.com.rafaeldias.etracking.R.id.nav_desconectar -> Sair()
         }
 
         val drawer = findViewById(br.com.rafaeldias.etracking.R.id.drawer_layout) as DrawerLayout
@@ -103,4 +107,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         ft.commit()
     }
 
+    private fun Sair(){
+        val BD = "User"
+        val editor = getSharedPreferences(BD, Context.MODE_PRIVATE).edit()
+
+        editor.putString("open_first", "0")
+        editor.commit()
+
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+    }
 }

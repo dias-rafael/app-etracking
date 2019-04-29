@@ -12,18 +12,20 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
-    private val TEMPO_AGUARDO_SPLASHSCREEN = 4500L
+    private val TEMPO_AGUARDO_SPLASHSCREEN = 3500L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_splash)
 
-        //consultando os dados gravados localmente
-        val preferences = getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
-        val isFirstOpen = preferences.getBoolean("open_first", true)
 
-        if (isFirstOpen) {
+        //consultando os dados gravados localmente
+        val BD = "User"
+        val preferences = getSharedPreferences(BD, Context.MODE_PRIVATE)
+        val isFirstOpen = preferences.getString("open_first", null)
+
+        if (isFirstOpen != "1") {
             showSplash()
         } else {
             showLogin()

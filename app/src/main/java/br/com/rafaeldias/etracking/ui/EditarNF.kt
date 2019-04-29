@@ -23,8 +23,8 @@ import kotlinx.android.synthetic.main.fragment_editarnf.*
 import kotlinx.android.synthetic.main.fragment_editarnf.btAlterar
 import kotlinx.android.synthetic.main.fragment_editarnf.etCNPJRemetente
 import kotlinx.android.synthetic.main.fragment_editarnf.etEnderecoEntrega
-import kotlinx.android.synthetic.main.fragment_editarnf.etMercadoria
-import kotlinx.android.synthetic.main.fragment_editarnf.etNumeroNF
+import kotlinx.android.synthetic.main.fragment_editarnf.etSenha
+import kotlinx.android.synthetic.main.fragment_editarnf.etEmail
 import kotlinx.android.synthetic.main.fragment_editarnf.etTelefoneContato
 
 public class EditarNF : Fragment(){
@@ -75,13 +75,13 @@ public class EditarNF : Fragment(){
         emailUsuario = Usuario!!.email
 
         etCNPJRemetente.setText(cnpjRemetente)
-        etNumeroNF.setText(numeroNF)
-        etMercadoria.setText(mercadoria)
+        etEmail.setText(numeroNF)
+        etSenha.setText(mercadoria)
         etTelefoneContato.setText(telefoneContato)
         etEnderecoEntrega.setText(enderecoEntrega)
         cnpj = view.findViewById(R.id.etCNPJRemetente)
-        nf = view.findViewById(R.id.etNumeroNF)
-        merc = view.findViewById(R.id.etMercadoria)
+        nf = view.findViewById(R.id.etEmail)
+        merc = view.findViewById(R.id.etSenha)
         tel = view.findViewById(R.id.etTelefoneContato)
         end = view.findViewById(R.id.etEnderecoEntrega)
 
@@ -130,7 +130,7 @@ public class EditarNF : Fragment(){
         }
 
         btAlterar.setOnClickListener() {
-            if ((cnpj.text.toString() != "") && (etNumeroNF.text.toString() != "") && (etMercadoria.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
+            if ((cnpj.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
                 //Toast.makeText(context, cnpj.text.toString(), Toast.LENGTH_LONG).show()
                 alterarNF(db!!).execute(notasObj)
                 Toast.makeText(context, "Nota Alterada", Toast.LENGTH_LONG).show()

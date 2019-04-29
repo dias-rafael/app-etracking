@@ -8,136 +8,163 @@
         tools:context=".ui.IncluirNF"
         android:screenOrientation="portrait"
         android:background="@drawable/gradient_background">
-
-    <TextView
-            android:text="CNPJ Remetente"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvCNPJRemetente" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/etCNPJRemetente" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvCNPJRemetente"/>
-    <TextView
-            android:text="Número NF"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvNumeroNF" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etCNPJRemetente"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/etNumeroNF" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvNumeroNF"/>
-    <TextView
-            android:text="Mercadoria"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMercadoria" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etNumeroNF"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/etMercadoria" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvMercadoria"/>
-    <Button
-            android:text="Alterar Nota"
-            android:layout_width="136dp"
-            android:layout_height="41dp"
-            android:id="@+id/btAlterar"
-            android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
-    <ImageView
-            android:layout_width="197dp"
-            android:layout_height="123dp" app:srcCompat="@drawable/nfe"
-            android:id="@+id/ivNFe" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
-    <TextView
-            android:text="Editar Notas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:textColor="@color/colorPrimaryText"
-            app:layout_constraintHorizontal_bias="0.498" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/ivNFe" android:textSize="18sp"/>
-    <TextView
-            android:text="Endereço Entrega"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvEndereco" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etMercadoria"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/etEnderecoEntrega" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvEndereco"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/ivMaps" android:layout_marginRight="8dp"/>
-    <TextView
-            android:text="Telefone Contato"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvTelefone" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etEnderecoEntrega"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/etTelefoneContato" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvTelefone"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/ivCall" android:layout_marginRight="8dp"/>
-    <Button
-            android:text="Excluir Nota"
-            android:layout_width="136dp"
-            android:layout_height="41dp" android:id="@+id/btExcluir"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
-            android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato"/>
-    <ImageView
-            android:src="@drawable/ic_map_black_24dp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:id="@+id/ivMaps" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvEndereco" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
-    <ImageView
-            android:src="@drawable/ic_call_black_24dp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:id="@+id/ivCall" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvTelefone"/>
+    <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:text="CNPJ Remetente"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCNPJRemetente" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/etCNPJRemetente" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCNPJRemetente"/>
+            <TextView
+                    android:text="Número NF"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNumeroNF" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/etCNPJRemetente"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/etEmail" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNumeroNF"/>
+            <TextView
+                    android:text="Mercadoria"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMercadoria" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/etSenha" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMercadoria"/>
+            <Button
+                    android:text="Alterar Nota"
+                    android:layout_width="136dp"
+                    android:layout_height="41dp"
+                    android:id="@+id/btAlterar"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
+            <ImageView
+                    android:layout_width="197dp"
+                    android:layout_height="123dp" app:srcCompat="@drawable/nfe"
+                    android:id="@+id/ivNFe" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+            <TextView
+                    android:text="Editar Notas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintHorizontal_bias="0.498" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ivNFe" android:textSize="18sp"/>
+            <TextView
+                    android:text="Endereço Entrega"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvEndereco" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/etSenha"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/etEnderecoEntrega" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEndereco"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/ivMaps" android:layout_marginRight="8dp"/>
+            <TextView
+                    android:text="Telefone Contato"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTelefone" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/etEnderecoEntrega"/>
+            <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/etTelefoneContato" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTelefone"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/ivCall" android:layout_marginRight="8dp"/>
+            <Button
+                    android:text="Excluir Nota"
+                    android:layout_width="136dp"
+                    android:layout_height="41dp" android:id="@+id/btExcluir"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato"/>
+            <ImageView
+                    android:src="@drawable/ic_map_black_24dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/ivMaps" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEndereco" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+            <ImageView
+                    android:src="@drawable/ic_call_black_24dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/ivCall" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTelefone"/>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

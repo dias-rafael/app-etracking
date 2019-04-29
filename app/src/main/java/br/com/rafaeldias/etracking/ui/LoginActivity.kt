@@ -1,14 +1,19 @@
 package br.com.rafaeldias.etracking.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.widget.Toast
 import br.com.rafaeldias.etracking.R
 import br.com.rafaeldias.etracking.utils.ValidaEmail
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import android.app.PendingIntent.getActivity
+import kotlinx.android.synthetic.main.toolbar.*
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -20,20 +25,16 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        if(mAuth.currentUser != null) {
-            vaiParaTelaPrincipal()
-        } else {
-            ConsultaBaseLocal()
-        }
+        ConsultaBaseLocal()
 
         btLogar.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etNumeroNF.text.toString()))
+            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {
-                if(etMercadoria.text.toString() != "") {
+                if(etSenha.text.toString() != "") {
                     mAuth.signInWithEmailAndPassword(
-                        etNumeroNF.text.toString(),
-                        etMercadoria.text.toString()
+                        etEmail.text.toString(),
+                        etSenha.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
                             GravaBaseLocal()
@@ -70,7 +71,12 @@ class LoginActivity : AppCompatActivity() {
         val BD = "User"
         val editor = getSharedPreferences(BD, Context.MODE_PRIVATE).edit()
 
-        editor.putString("email", etNumeroNF.text.toString())
+        editor.putString("email", etEmail.text.toString())
+        if (swManterConectado.isChecked){
+            editor.putString("open_first", "1")
+        } else {
+            editor.putString("open_first", "0")
+        }
         editor.commit()
     }
 
@@ -78,8 +84,12 @@ class LoginActivity : AppCompatActivity() {
         val BD = "User"
         val prefs = getSharedPreferences(BD, Context.MODE_PRIVATE)
         val user = prefs.getString("email", null)
+        val open_first = prefs.getString("open_first", null)
         if (user != null) {
-            etNumeroNF.setText(user)
+            etEmail.setText(user)
+        }
+        if ((mAuth.currentUser != null) && (open_first == "1")){
+                vaiParaTelaPrincipal()
         }
     }
 }

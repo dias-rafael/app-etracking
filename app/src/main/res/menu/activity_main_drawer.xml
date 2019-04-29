@@ -16,7 +16,10 @@
                 android:title="Sobre" />
         <item
                 android:id="@+id/nav_sair"
-                android:title="Sair" />
+                android:title="Fechar" />
+        <item
+                android:id="@+id/nav_desconectar"
+                android:title="Desconectar" />
     </group>
 
 </menu>

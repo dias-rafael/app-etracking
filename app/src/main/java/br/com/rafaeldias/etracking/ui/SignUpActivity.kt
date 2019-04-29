@@ -8,7 +8,7 @@ import br.com.rafaeldias.etracking.model.User
 import br.com.rafaeldias.etracking.utils.ValidaEmail
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_sign_up_acitivity.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -16,18 +16,18 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up_acitivity)
+        setContentView(R.layout.activity_sign_up)
 
         mAuth = FirebaseAuth.getInstance()
 
         btAlterar.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etNumeroNF.text.toString()))
+            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {
-                if ((etMercadoria.text.toString() != "") && (etCNPJRemetente.text.toString() != "") && (etTelefone.text.toString() != "")) {
+                if ((etSenha.text.toString() != "") && (etCNPJRemetente.text.toString() != "") && (etTelefone.text.toString() != "")) {
                     mAuth.createUserWithEmailAndPassword(
-                        etNumeroNF.text.toString(),
-                        etMercadoria.text.toString()
+                        etEmail.text.toString(),
+                        etSenha.text.toString()
                     ).addOnCompleteListener {
                         if (it.isSuccessful) {
                             salvarNoRealtimeDatabase()
@@ -47,7 +47,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun salvarNoRealtimeDatabase() {
-        val user = User(etCNPJRemetente.text.toString(), etNumeroNF.text.toString(), etTelefone.text.toString())
+        val user = User(etCNPJRemetente.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
         FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
