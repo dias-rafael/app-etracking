@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import br.com.rafaeldias.etracking.R
 import br.com.rafaeldias.etracking.model.Notas
 import kotlinx.android.synthetic.main.card_nota.view.*
@@ -42,8 +41,8 @@ class NotasAdapter(var notas: List<Notas>, val clickListener: (Notas) -> Unit) :
     class NotasViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(part: Notas, clickListener: (Notas) -> Unit) {
             itemView.tvNota.text = part.numeronf
-            itemView.tvMercadoria.text = part.mercadoria
-            itemView.tvCNPJRemetente.text = part.cnpjremetente
+            itemView.tvSenha.text = part.mercadoria
+            itemView.tvNome.text = part.cnpjremetente
             itemView.tvEndereco.text = part.enderecoentrega
             itemView.tvTelefone.text = part.telefoneremetente
             /*

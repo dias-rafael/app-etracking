@@ -13,28 +13,28 @@
             android:text="Nome Completo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tvCNPJRemetente" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:id="@+id/tvNome" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvSignup"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/etCNPJRemetente" android:layout_marginStart="8dp"
+            android:id="@+id/etNome" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvCNPJRemetente"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvNome"/>
     <TextView
             android:text="E-mail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tvNumeroNF" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/tvEmail" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etCNPJRemetente"/>
+            app:layout_constraintTop_toBottomOf="@+id/etNome"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -42,12 +42,12 @@
             android:id="@+id/etEmail" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvNumeroNF" android:inputType="textEmailAddress"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail" android:inputType="textEmailAddress"/>
     <TextView
             android:text="Senha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tvMercadoria" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/tvSenha" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
@@ -58,12 +58,12 @@
             android:id="@+id/etSenha" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvMercadoria" android:inputType="textPassword"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvSenha" android:inputType="textPassword"/>
     <TextView
             android:text="Telefone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textView6" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:id="@+id/tvTelefone" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/etSenha"/>
@@ -75,12 +75,12 @@
             android:id="@+id/etTelefone" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvTelefone"/>
     <Button
             android:text="Criar Conta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btAlterar" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:id="@+id/btCriar" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/etTelefone"/>
@@ -97,7 +97,7 @@
             android:text="Preencha as informações abaixo para criar sua conta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView7" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:id="@+id/tvSignup" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/ivSignup" android:textColor="@color/colorPrimaryText"/>

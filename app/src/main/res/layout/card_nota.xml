@@ -26,14 +26,14 @@
                 tools:text="Nota Fiscal"/>
 
         <TextView
-                android:id="@+id/tvMercadoria"
+                android:id="@+id/tvSenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 tools:text="Mercadoria"/>
 
         <TextView
-                android:id="@+id/tvCNPJRemetente"
+                android:id="@+id/tvNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
