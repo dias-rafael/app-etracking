@@ -34,13 +34,13 @@ class IncluirNF : Fragment(){
         mAuth = FirebaseAuth.getInstance()
         builder = AlertDialog.Builder(activity)
 
-        btCriar.setOnClickListener(){
-            if ((etNome.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
+        btCriarConta.setOnClickListener(){
+            if ((etCNPJ.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
                 val db = AppDatabase.getDatabase(activity!!.applicationContext)
                 val Usuario = mAuth.currentUser
                 Usuario?.let {
                     val emailUsuario = Usuario.email
-                    val notasObj = Notas(0,etNome.text.toString(),etEmail.text.toString(),etSenha.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString())
+                    val notasObj = Notas(0,etCNPJ.text.toString(),etEmail.text.toString(),etSenha.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString())
                     cadastrarNF(db!!).execute(notasObj)
                     Toast.makeText(context, "Nota Cadastrada", Toast.LENGTH_LONG).show()
                     Handler().postDelayed({

@@ -1,18 +1,14 @@
 package br.com.rafaeldias.etracking.ui
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.widget.Toast
 import br.com.rafaeldias.etracking.R
 import br.com.rafaeldias.etracking.utils.ValidaEmail
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-import android.app.PendingIntent.getActivity
-import kotlinx.android.synthetic.main.toolbar.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -49,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        btNovaConta.setOnClickListener {
+        btCriarConta.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
     }

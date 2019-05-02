@@ -19,7 +19,6 @@ class SplashActivity : AppCompatActivity() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_splash)
 
-
         //consultando os dados gravados localmente
         val BD = "User"
         val preferences = getSharedPreferences(BD, Context.MODE_PRIVATE)
@@ -41,10 +40,10 @@ class SplashActivity : AppCompatActivity() {
     private fun showSplash() {
         val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
         anim.reset()
-        ivSplash.clearAnimation()
-        ivSplash.startAnimation(anim)
-        tvSplash.clearAnimation()
-        tvSplash.startAnimation(anim)
+        ivLogoSobre.clearAnimation()
+        ivLogoSobre.startAnimation(anim)
+        tvAppSobre.clearAnimation()
+        tvAppSobre.startAnimation(anim)
 
         Handler().postDelayed({
             showLogin()

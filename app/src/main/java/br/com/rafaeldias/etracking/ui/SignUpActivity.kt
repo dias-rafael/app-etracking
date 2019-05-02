@@ -20,11 +20,11 @@ class SignUpActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        btCriar.setOnClickListener {
+        btCriarConta.setOnClickListener {
             if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
             else {
-                if ((etSenha.text.toString() != "") && (etNome.text.toString() != "") && (etTelefone.text.toString() != "")) {
+                if ((etSenha.text.toString() != "") && (etCNPJ.text.toString() != "") && (etTelefone.text.toString() != "")) {
                     mAuth.createUserWithEmailAndPassword(
                         etEmail.text.toString(),
                         etSenha.text.toString()
@@ -47,16 +47,16 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun salvarNoRealtimeDatabase() {
-        val user = User(etNome.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
+        val user = User(etCNPJ.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
         FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Usuário criado com sucesso", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.usuario_criado), Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
-                    Toast.makeText(this, "Erro ao criar o usuário", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.erro_criar_usuario), Toast.LENGTH_SHORT).show()
                 }
             }
     }

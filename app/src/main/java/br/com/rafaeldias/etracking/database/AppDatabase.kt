@@ -6,7 +6,6 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import br.com.rafaeldias.etracking.dao.NotasDao
 import br.com.rafaeldias.etracking.model.Notas
-import java.security.AccessControlContext
 
 @Database(entities = [Notas::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

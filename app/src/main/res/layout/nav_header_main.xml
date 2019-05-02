@@ -13,25 +13,25 @@
               android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivLogo"
             android:layout_width="52dp"
-            android:layout_height="66dp"
+            android:layout_height="63dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@drawable/logo_etracking" android:contentDescription="Logo"/>
+            app:srcCompat="@drawable/logo_etracking" android:contentDescription="@string/img_logo"/>
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="e-Tracking"
+            android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" android:textColor="@color/colorTextIcons"
-            android:textSize="18sp" android:id="@+id/tvNomeUsuario"/>
+            android:textSize="@dimen/app_name_size" android:id="@+id/tvAppName"/>
 
     <TextView
-            android:id="@+id/tvEmailUsuarioLogado"
+            android:id="@+id/tvSlogan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sua carga na sua mão" android:textColor="@color/colorSecondaryText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textSize="14sp"/>
+            android:text="@string/slogan" android:textColor="@color/colorSecondaryText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textSize="@dimen/label_font_size"/>
 
 </LinearLayout>

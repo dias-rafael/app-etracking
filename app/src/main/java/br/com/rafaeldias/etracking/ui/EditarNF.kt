@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment;
-import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,14 +20,14 @@ import br.com.rafaeldias.etracking.database.AppDatabase
 import br.com.rafaeldias.etracking.model.Notas
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_editarnf.*
-import kotlinx.android.synthetic.main.fragment_editarnf.btCriar
-import kotlinx.android.synthetic.main.fragment_editarnf.etNome
+import kotlinx.android.synthetic.main.fragment_editarnf.btCriarConta
+import kotlinx.android.synthetic.main.fragment_editarnf.etCNPJ
 import kotlinx.android.synthetic.main.fragment_editarnf.etEnderecoEntrega
 import kotlinx.android.synthetic.main.fragment_editarnf.etSenha
 import kotlinx.android.synthetic.main.fragment_editarnf.etEmail
 import kotlinx.android.synthetic.main.fragment_editarnf.etTelefoneContato
 
-public class EditarNF : Fragment(){
+class EditarNF : Fragment(){
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var builder: AlertDialog.Builder
@@ -71,16 +70,16 @@ public class EditarNF : Fragment(){
 
         mAuth = FirebaseAuth.getInstance()
         builder = AlertDialog.Builder(activity)
-        //Toast.makeText(context, idNota, Toast.LENGTH_LONG).show()
+
         val Usuario = mAuth.currentUser
         emailUsuario = Usuario!!.email
 
-        etNome.setText(cnpjRemetente)
+        etCNPJ.setText(cnpjRemetente)
         etEmail.setText(numeroNF)
         etSenha.setText(mercadoria)
         etTelefoneContato.setText(telefoneContato)
         etEnderecoEntrega.setText(enderecoEntrega)
-        cnpj = view.findViewById(R.id.etNome)
+        cnpj = view.findViewById(R.id.etCNPJ)
         nf = view.findViewById(R.id.etEmail)
         merc = view.findViewById(R.id.etSenha)
         tel = view.findViewById(R.id.etTelefoneContato)
@@ -88,12 +87,10 @@ public class EditarNF : Fragment(){
 
         ivCall.setOnClickListener(){
             var uri = Uri.parse(tel.text.toString())
-            //Toast.makeText(context, tel.text.toString(), Toast.LENGTH_LONG).show()
             val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uri))
             if (ActivityCompat.checkSelfPermission(context!!,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 1)
             } else {
-                Log.e("DB", "CALL PERMISSION GRANTED")
                 startActivity(intent)
             }
         }
@@ -109,7 +106,7 @@ public class EditarNF : Fragment(){
         ivShare.setOnClickListener(){
             var shareContent: String
             shareContent = "Número NF: " + nf.text.toString()
-            shareContent += " / Mercadoria:" + merc.text.toString()
+            shareContent += " / Mercadoria: " + merc.text.toString()
             shareContent += " / Endereço Entrega: " + end.text.toString()
             shareContent += " / Telefone Contato: " + tel.text.toString()
             shareContent += " / CNPJ Remetente: " + cnpj.text.toString()
@@ -117,7 +114,7 @@ public class EditarNF : Fragment(){
             intent.action = Intent.ACTION_SEND
             intent.type = ("text/html")
             intent.putExtra(Intent.EXTRA_TEXT, (shareContent))
-            val intentChooser = Intent.createChooser( intent, "Compartilhar Nota Fiscal com:" )
+            val intentChooser = Intent.createChooser( intent, getString(R.string.chooser) )
             startActivity(intentChooser)
         }
     }
@@ -130,7 +127,7 @@ public class EditarNF : Fragment(){
         btExcluir.setOnClickListener(){
             if (idNota != "") {
                 excluirNF(db!!).execute(notasObj)
-                Toast.makeText(context, "Nota Excluída", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.nota_excluida), Toast.LENGTH_LONG).show()
                 Handler().postDelayed({
                     telaInicial()
                 }, 3000)
@@ -144,11 +141,10 @@ public class EditarNF : Fragment(){
 
         }
 
-        btCriar.setOnClickListener() {
+        btCriarConta.setOnClickListener() {
             if ((cnpj.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
-                //Toast.makeText(context, cnpj.text.toString(), Toast.LENGTH_LONG).show()
                 alterarNF(db!!).execute(notasObj)
-                Toast.makeText(context, "Nota Alterada", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.nota_alterada), Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(
                     activity,

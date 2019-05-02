@@ -7,4 +7,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="action_icon">32dp</dimen>
+    <dimen name="title_font_size">14sp</dimen>
+    <dimen name="label_font_size">14sp</dimen>
+    <dimen name="form_font_size">18sp</dimen>
+    <dimen name="logo_size">180dp</dimen>
+    <dimen name="logo_sm_size_height">93dp</dimen>
+    <dimen name="app_name_size">18sp</dimen>
+    <dimen name="versao_size">10sp</dimen>
+    <dimen name="card_primary_size">22sp</dimen>
+    <dimen name="card_secondary_size">16sp</dimen>
 </resources>

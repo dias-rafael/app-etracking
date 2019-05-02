@@ -9,44 +9,46 @@
         android:screenOrientation="portrait"
         android:background="@drawable/gradient_background">
     <ScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <TextView
-                    android:text="CNPJ Remetente"
+                    android:text="@string/card_cnpj_remetente"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvNome" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/tvCNPJ" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSignup"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditar" android:textSize="@dimen/label_font_size"
+                    android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/etNome" android:layout_marginStart="8dp"
+                    android:id="@+id/etCNPJ" android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNome"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tvCNPJ" android:textSize="@dimen/form_font_size"
+                    android:textColor="@color/colorPrimaryText" android:autofillHints=""/>
             <TextView
-                    android:text="Número NF"
+                    android:text="@string/card_nota_fiscal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvEmail" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/tvNota" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etNome"/>
+                    app:layout_constraintTop_toBottomOf="@+id/etCNPJ" android:textSize="@dimen/label_font_size"
+                    android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -56,16 +58,18 @@
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvEmail"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tvNota" android:textSize="@dimen/form_font_size"
+                    android:textColor="@color/colorPrimaryText" android:inputType="number" android:autofillHints=""/>
             <TextView
-                    android:text="Mercadoria"
+                    android:text="@string/card_mercadoria"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvSenha" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etEmail"/>
+                    app:layout_constraintTop_toBottomOf="@+id/etEmail" android:textSize="@dimen/label_font_size"
+                    android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -75,47 +79,51 @@
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSenha"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tvSenha" android:textSize="@dimen/form_font_size"
+                    android:textColor="@color/colorPrimaryText" android:inputType="text" android:autofillHints=""/>
             <Button
-                    android:text="Cadastrar Nota"
+                    android:text="@string/cadastrar_nota"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btCriar" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/btCriarConta" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="32dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato"/>
+                    app:layout_constraintTop_toBottomOf="@+id/etTelefoneContato"
+                    android:textSize="@dimen/label_font_size" android:textColor="@color/colorPrimaryText"/>
             <ImageView
-                    android:layout_width="197dp"
-                    android:layout_height="123dp" app:srcCompat="@drawable/nfe"
-                    android:id="@+id/ivNFe" android:layout_marginTop="32dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/logo_sm_size_height" app:srcCompat="@drawable/nfe"
+                    android:id="@+id/ivEditar"
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+                    android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+                    android:contentDescription="@string/img_topo_incluir"/>
             <TextView
-                    android:text="Incluir Notas"
+                    android:text="@string/title_topo_incluir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvSignup" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/tvEditar" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:textColor="@color/colorPrimaryText"
                     app:layout_constraintHorizontal_bias="0.498" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/ivNFe" android:textSize="18sp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/ivEditar" android:textSize="@dimen/title_font_size"/>
             <TextView
-                    android:text="Endereço Entrega"
+                    android:text="@string/card_endereco_entrega"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvEndereco" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etSenha"/>
+                    app:layout_constraintTop_toBottomOf="@+id/etSenha" android:textSize="@dimen/label_font_size"
+                    android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -125,16 +133,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvEndereco" android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"/>
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:textSize="@dimen/form_font_size" android:textColor="@color/colorPrimaryText"
+                    android:autofillHints=""/>
             <TextView
-                    android:text="Telefone Contato"
+                    android:text="@string/card_telefone_contato"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvTelefone" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etEnderecoEntrega"/>
+                    app:layout_constraintTop_toBottomOf="@+id/etEnderecoEntrega"
+                    android:textSize="@dimen/label_font_size" android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -144,7 +155,9 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvTelefone" android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"/>
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                    android:textSize="@dimen/form_font_size" android:textColor="@color/colorPrimaryText"
+                    android:autofillHints=""/>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

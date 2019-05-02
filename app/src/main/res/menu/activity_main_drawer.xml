@@ -4,22 +4,19 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/nav_incluirnf"
-                android:title="Incluir Notas" />
+                android:title="@string/menu_incluir_nf" />
         <item
                 android:id="@+id/nav_listarnf"
-                android:title="Listar Notas" />
-    </group>
-
-    <group android:checkableBehavior="single">
+                android:title="@string/menu_listar_nf" />
         <item
                 android:id="@+id/nav_sobre"
-                android:title="Sobre" />
+                android:title="@string/menu_sobre" />
         <item
                 android:id="@+id/nav_sair"
-                android:title="Fechar" />
+                android:title="@string/menu_fechar" />
         <item
                 android:id="@+id/nav_desconectar"
-                android:title="Desconectar" />
+                android:title="@string/menu_desconectar" />
     </group>
 
 </menu>

@@ -14,7 +14,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 
 
-public class ListarNF : Fragment(){
+class ListarNF : Fragment(){
 
     private var  adapter: NotasAdapter? = null
 
@@ -38,7 +38,6 @@ public class ListarNF : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         listarNotas()
-
     }
 
     private fun listarNotas() {
@@ -54,8 +53,6 @@ public class ListarNF : Fragment(){
     }
 
     private fun partItemClicked(partItem : Notas) {
-        //Toast.makeText(context, "Clicked: ${partItem.id}", Toast.LENGTH_LONG).show()
-
         val ft: Fragment = EditarNF()
         val bundle = Bundle()
         bundle.putString("idNota",partItem.id.toString())
@@ -64,11 +61,9 @@ public class ListarNF : Fragment(){
         bundle.putString("mercadoria",partItem.mercadoria.toString())
         bundle.putString("enderecoEntrega",partItem.enderecoentrega.toString())
         bundle.putString("telefoneContato",partItem.telefoneremetente.toString())
-        //ft.arguments = bundle
         ft.setArguments(bundle)
         val fragmentTransaction = fragmentManager!!.beginTransaction()
         fragmentTransaction.replace(R.id.content_main, ft,ft.tag)
         fragmentTransaction.commit()
-
     }
 }

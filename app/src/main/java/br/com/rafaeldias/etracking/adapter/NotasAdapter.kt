@@ -27,31 +27,16 @@ class NotasAdapter(var notas: List<Notas>, val clickListener: (Notas) -> Unit) :
     override fun onBindViewHolder(holder: NotasViewHolder, i: Int) {
         (holder as NotasViewHolder).bind(notas[i], clickListener)
         val notas = notas[i]
-        /*
-        holder.tvtvNota.text = notas.numeronf
-        holder.tvMercadoria.text = notas.mercadoria
-        holder.tvCNPJRemetente.text = notas.cnpjremetente
-        holder.tvTelefone.text = notas.telefoneremetente
-        holder.tvEndereco.text = notas.enderecoentrega
-        */
-
-
     }
 
     class NotasViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(part: Notas, clickListener: (Notas) -> Unit) {
             itemView.tvNota.text = part.numeronf
             itemView.tvSenha.text = part.mercadoria
-            itemView.tvNome.text = part.cnpjremetente
+            itemView.tvCNPJ.text = part.cnpjremetente
             itemView.tvEndereco.text = part.enderecoentrega
             itemView.tvTelefone.text = part.telefoneremetente
-            /*
-            var tvMercadoria: TextView = itemView.findViewById(R.id.tvMercadoria)
-            var tvCNPJRemetente: TextView = itemView.findViewById(R.id.tvCNPJRemetente)
-            var tvTelefone: TextView = itemView.findViewById(R.id.tvTelefone)
-            var tvEndereco: TextView = itemView.findViewById(R.id.tvEndereco)
-            */
-            itemView.setOnClickListener { clickListener(part)}
+            itemView.setOnClickListener { clickListener(part) }
         }
     }
 }
