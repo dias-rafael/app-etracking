@@ -6,8 +6,11 @@ import android.content.pm.ActivityInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import br.com.rafaeldias.etracking.R
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -18,6 +21,16 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContentView(R.layout.activity_splash)
+
+        FirebaseMessaging.getInstance().subscribeToTopic("geral")
+            .addOnCompleteListener { task ->
+                var msg = getString(R.string.msg_subscribed)
+                if (!task.isSuccessful) {
+                    msg = getString(R.string.msg_subscribe_failed)
+                }
+                Log.d("Msg tópico:", msg)
+                //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+            }
 
         //consultando os dados gravados localmente
         val BD = "User"

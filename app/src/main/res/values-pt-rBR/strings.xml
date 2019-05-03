@@ -52,4 +52,6 @@
     <string name="toast_usuario_incorreto">E-mail inválido</string>
     <string name="usuario_criado">Conta cadastrada com sucesso!</string>
     <string name="versao">Versão 1.0</string>
+    <string name="msg_subscribed">Registrado no topico geral</string>
+    <string name="msg_subscribe_failed">Falha no registro do topico geral</string>
 </resources>

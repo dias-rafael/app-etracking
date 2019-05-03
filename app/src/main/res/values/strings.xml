@@ -56,4 +56,6 @@
     <string name="toast_usuario_incorreto">Invalid E-mail</string>
     <string name="usuario_criado">" account successfully registered"</string>
     <string name="versao">Version 1.0</string>
+    <string name="msg_subscribed">Subscribed to general topic</string>
+    <string name="msg_subscribe_failed">Failed to subscribe to weather topic</string>
 </resources>
