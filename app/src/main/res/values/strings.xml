@@ -1,73 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">e-Tracking</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-
-    <string name="toast_usuario_incorreto">E-mail inválido</string>
-    <string name="toast_senha_invalida">Informe a senha</string>
-    <string name="toast_campos_em_branco">Preencha todos os campos</string>
-    <string name="toast_nf_nao_encontrada">Erro ao localizar a NF</string>
-
-    <string name="google_maps_key">AIzaSyDNCv9MKeL7DSWHdbd0Hi2L-Q9CzmS1ExA</string>
-    <string name="title_activity_maps">Map</string>
-
-    <string name="menu_incluir_nf">Incluir  Notas</string>
-    <string name="menu_listar_nf">Listar  Notas</string>
-    <string name="menu_sobre">Sobre</string>
-    <string name="menu_fechar">Fechar</string>
-    <string name="menu_desconectar">Desconectar</string>
-
-    <string name="img_logo">Imagem Logo</string>
-    <string name="slogan">Sua carga na sua mão</string>
-    <string name="versao">Versão 1.0</string>
-
-    <string name="img_topo_login">Imagem Topo Login</string>
-    <string name="title_topo_login">Bem Vindo</string>
+    <string name="google_maps_key" translatable="false">AIzaSyDNCv9MKeL7DSWHdbd0Hi2L-Q9CzmS1ExA</string>
     <string name="e_mail">E-mail</string>
-    <string name="senha">Senha</string>
-    <string name="manter_conectado">Manter conectado</string>
-    <string name="logar">Logar</string>
-    <string name="criar_conta">Criar Conta</string>
-
-    <string name="img_topo_signup">Imagem Topo Sign-up</string>
-    <string name="title_topo_signup">Preencha as informações abaixo para criar sua conta</string>
-    <string name="nome">Nome Completo</string>
-    <string name="telefone">Telefone</string>
-
-    <string name="img_topo_sobre">Imagem Topo Sobre</string>
-    <string name="title_topo_sobre">Sobre</string>
-    <string name="turma">FIAP - 16MOB</string>
-    <string name="curso">Avaliação Final Android</string>
-    <string name="aluno">Rafael dos Santos Dias</string>
-    <string name="rm">RM: 330518</string>
-
-    <string name="card_nota_fiscal">Nota Fiscal</string>
-    <string name="card_mercadoria">Mercadoria</string>
-    <string name="card_cnpj_remetente">CNPJ Remetente</string>
-    <string name="card_endereco_entrega">Endereço Entrega</string>
-    <string name="card_telefone_contato">Telefone Contato</string>
-
-    <string name="img_topo_listar">Imagem Topo Listar</string>
-    <string name="title_topo_listar">Lista de Notas Cadastradas</string>
-
-    <string name="img_topo_incluir">Imagem Topo Incluir</string>
-    <string name="title_topo_incluir">Incluir Nota</string>
-    <string name="cadastrar_nota">Cadastrar Nota</string>
-
-    <string name="img_topo_editar">Imagem Topo Editar</string>
-    <string name="title_topo_editar">Editar Nota</string>
-    <string name="alterar_nota">Alterar Nota</string>
-    <string name="excluir_nota">Excluir Nota</string>
-
-    <string name="img_action">Imagem Ação</string>
-
-    <string name="chooser">Compartilhar Nota Fiscal com:</string>
-    <string name="nota_excluida">Nota Excluída!</string>
-    <string name="nota_alterada">Nota Alterada!</string>
-    <string name="sem_permissao_acesso_mapa">Sem permissão de acesso!</string>
-    <string name="usuario_criado">Conta cadastrada com sucesso!</string>
-    <string name="erro_criar_usuario">Erro ao criar a conta!</string>
+    <string name="turma" translatable="false">FIAP - 16MOB</string>
+    <string name="rm" translatable="false">RM: 330518</string>
+    <string name="action_settings">Settings</string>
+    <string name="alterar_nota">Change invoice</string>
+    <string name="aluno" translatable="false">Rafael dos Santos Dias</string>
+    <string name="cadastrar_nota">Add Invoice</string>
+    <string name="card_cnpj_remetente">CNPJ Sender</string>
+    <string name="card_endereco_entrega">Delivery Address</string>
+    <string name="card_mercadoria">Product</string>
+    <string name="card_nota_fiscal">Invoice</string>
+    <string name="card_telefone_contato">Contact Phone</string>
+    <string name="chooser">Share Invoice with:</string>
+    <string name="criar_conta">Create Account</string>
+    <string name="curso">Final Evaluation Android</string>
+    <string name="erro_criar_usuario">Error saving invoice</string>
+    <string name="excluir_nota">Delete Invoice</string>
+    <string name="img_action">Action Image</string>
+    <string name="img_logo">Logo Image</string>
+    <string name="img_topo_editar">Edit Image Top</string>
+    <string name="img_topo_incluir">Add Image Top</string>
+    <string name="img_topo_listar">List Image Top</string>
+    <string name="img_topo_login">Login Image Top</string>
+    <string name="img_topo_signup">Signup Image Top</string>
+    <string name="img_topo_sobre">About Image Top</string>
+    <string name="logar">Login</string>
+    <string name="manter_conectado">Stay Connected</string>
+    <string name="menu_desconectar">Disconnect</string>
+    <string name="menu_fechar">Close</string>
+    <string name="menu_incluir_nf">Add Invoice</string>
+    <string name="menu_listar_nf">List Invoice</string>
+    <string name="menu_sobre">About</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="nome">Full Name</string>
+    <string name="nota_alterada">Altered Invoice!</string>
+    <string name="nota_excluida">Deleted Invoice</string>
+    <string name="sem_permissao_acesso_mapa">Access Denied!</string>
+    <string name="senha">Password</string>
+    <string name="slogan">Your load in your hand</string>
+    <string name="telefone">Phone</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_topo_editar">Change Invoice</string>
+    <string name="title_topo_incluir">Add Invoice</string>
+    <string name="title_topo_listar">List of Registered Invoices</string>
+    <string name="title_topo_login">Welcome</string>
+    <string name="title_topo_signup">" Fill in the information below to create your account"</string>
+    <string name="title_topo_sobre">About</string>
+    <string name="toast_campos_em_branco">Complete all fields</string>
+    <string name="toast_nf_nao_encontrada">Error fetching invoice</string>
+    <string name="toast_senha_invalida">Enter password</string>
+    <string name="toast_usuario_incorreto">Invalid E-mail</string>
+    <string name="usuario_criado">" account successfully registered"</string>
+    <string name="versao">Version 1.0</string>
 </resources>
