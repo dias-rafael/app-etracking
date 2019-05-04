@@ -21,10 +21,15 @@ class SignUpActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         btCriarConta.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
+            btCriarConta.setText(getString(R.string.aguarde))
+            btCriarConta.isEnabled=false
+            if (!ValidaEmail.isEmailValid(etEmail.text.toString())) {
                 Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
+                btCriarConta.setText(getString(R.string.criar_conta))
+                btCriarConta.isEnabled = true
+            }
             else {
-                if ((etSenha.text.toString() != "") && (etCNPJ.text.toString() != "") && (etTelefone.text.toString() != "")) {
+                if ((etSenha.text.toString() != "") && (etNome.text.toString() != "") && (etTelefone.text.toString() != "")) {
                     mAuth.createUserWithEmailAndPassword(
                         etEmail.text.toString(),
                         etSenha.text.toString()
@@ -33,6 +38,8 @@ class SignUpActivity : AppCompatActivity() {
                             salvarNoRealtimeDatabase()
                         } else {
                             Toast.makeText(this@SignUpActivity, it.exception?.message, Toast.LENGTH_SHORT).show()
+                            btCriarConta.setText(getString(R.string.criar_conta))
+                            btCriarConta.isEnabled = true
                         }
                     }
                 } else {
@@ -41,13 +48,15 @@ class SignUpActivity : AppCompatActivity() {
                         getString(R.string.toast_campos_em_branco),
                         Toast.LENGTH_SHORT
                     ).show()
+                    btCriarConta.setText(getString(R.string.criar_conta))
+                    btCriarConta.isEnabled = true
                 }
             }
         }
     }
 
     private fun salvarNoRealtimeDatabase() {
-        val user = User(etCNPJ.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
+        val user = User(etNome.text.toString(), etEmail.text.toString(), etTelefone.text.toString())
         FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)

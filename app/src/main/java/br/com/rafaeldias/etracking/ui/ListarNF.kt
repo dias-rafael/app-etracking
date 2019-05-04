@@ -61,6 +61,7 @@ class ListarNF : Fragment(){
         bundle.putString("mercadoria",partItem.mercadoria.toString())
         bundle.putString("enderecoEntrega",partItem.enderecoentrega.toString())
         bundle.putString("telefoneContato",partItem.telefoneremetente.toString())
+        bundle.putBoolean("entregue",partItem.entregue)
         ft.setArguments(bundle)
         val fragmentTransaction = fragmentManager!!.beginTransaction()
         fragmentTransaction.replace(R.id.content_main, ft,ft.tag)

@@ -1,7 +1,6 @@
 package br.com.rafaeldias.etracking.ui;
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle;
 import android.os.Handler
@@ -35,17 +34,22 @@ class IncluirNF : Fragment(){
         builder = AlertDialog.Builder(activity)
 
         btCriarConta.setOnClickListener(){
-            if ((etCNPJ.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
+            if ((etNome.text.toString() != "") && (etEmail.text.toString() != "") && (etSenha.text.toString() != "") && (etTelefoneContato.text.toString() != "") && (etEnderecoEntrega.text.toString() != "")) {
                 val db = AppDatabase.getDatabase(activity!!.applicationContext)
                 val Usuario = mAuth.currentUser
                 Usuario?.let {
                     val emailUsuario = Usuario.email
-                    val notasObj = Notas(0,etCNPJ.text.toString(),etEmail.text.toString(),etSenha.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString())
+                    val notasObj = Notas(0,etNome.text.toString(),etEmail.text.toString(),etSenha.text.toString(),emailUsuario.toString(),etTelefoneContato.text.toString(),etEnderecoEntrega.text.toString(),false)
                     cadastrarNF(db!!).execute(notasObj)
-                    Toast.makeText(context, "Nota Cadastrada", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, getString(R.string.nota_cadastrada), Toast.LENGTH_LONG).show()
                     Handler().postDelayed({
-                        telaInicial()
-                    }, 3000)
+                        //telaInicial()
+                        etNome.setText("")
+                        etEmail.setText("")
+                        etSenha.setText("")
+                        etTelefoneContato.setText("")
+                        etEnderecoEntrega.setText("")
+                    }, 2500)
                 }
 
             } else {
@@ -69,15 +73,4 @@ class IncluirNF : Fragment(){
 
     }
 
-    private fun telaInicial() {
-        val intent = Intent(activity, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
-        val Usuario = mAuth.currentUser
-        Usuario?.let {
-            val emailUsuario = Usuario.email
-            intent.putExtra("emailUsuario", emailUsuario)
-        }
-        startActivity(intent)
-    }
 }

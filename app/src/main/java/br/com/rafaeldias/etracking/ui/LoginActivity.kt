@@ -24,8 +24,15 @@ class LoginActivity : AppCompatActivity() {
         ConsultaBaseLocal()
 
         btLogar.setOnClickListener {
-            if (!ValidaEmail.isEmailValid(etEmail.text.toString()))
-                Toast.makeText(getApplicationContext(),getString(R.string.toast_usuario_incorreto),Toast.LENGTH_SHORT).show()
+            btLogar.setText(getString(R.string.aguarde))
+            btLogar.isEnabled=false
+            if (!ValidaEmail.isEmailValid(etEmail.text.toString())) {
+                Toast.makeText(getApplicationContext(), getString(R.string.toast_usuario_incorreto), Toast.LENGTH_SHORT)
+                    .show()
+                btLogar.setText(getString(R.string.logar))
+                btLogar.isEnabled = true
+            }
+
             else {
                 if(etSenha.text.toString() != "") {
                     mAuth.signInWithEmailAndPassword(
@@ -37,10 +44,14 @@ class LoginActivity : AppCompatActivity() {
                             vaiParaTelaPrincipal()
                         } else {
                             Toast.makeText(this@LoginActivity, it.exception?.message, Toast.LENGTH_SHORT).show()
+                            btLogar.setText(getString(R.string.logar))
+                            btLogar.isEnabled = true
                         }
                     }
                 } else{
                     Toast.makeText(getApplicationContext(),getString(R.string.toast_senha_invalida),Toast.LENGTH_SHORT).show()
+                    btLogar.setText(getString(R.string.logar))
+                    btLogar.isEnabled = true
                 }
             }
         }

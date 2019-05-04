@@ -13,8 +13,9 @@ class Notas {
     var telefoneremetente: String? = null
     var enderecoentrega: String? = null
     var usuarioinc: String? = null
+    var entregue: Boolean
 
-    constructor(id: Long, cnpjremetente: String, numeronf: String, mercadoria: String, usuarioinc: String, telefoneremetente: String, enderecoentrega: String) {
+    constructor(id: Long, cnpjremetente: String, numeronf: String, mercadoria: String, usuarioinc: String, telefoneremetente: String, enderecoentrega: String, entregue: Boolean) {
         this.id = id
         this.cnpjremetente = cnpjremetente
         this.numeronf = numeronf
@@ -22,5 +23,6 @@ class Notas {
         this.telefoneremetente = telefoneremetente
         this.enderecoentrega = enderecoentrega
         this.usuarioinc = usuarioinc
+        this.entregue = entregue
     }
 }

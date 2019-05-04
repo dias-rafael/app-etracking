@@ -24,6 +24,7 @@
     <string name="img_topo_signup">Imagem Topo Sign-up</string>
     <string name="img_topo_sobre">Imagem Topo Sobre</string>
     <string name="logar">Logar</string>
+    <string name="aguarde">Aguarde...</string>
     <string name="manter_conectado">Manter conectado</string>
     <string name="menu_desconectar">Desconectar</string>
     <string name="menu_fechar">Fechar</string>
@@ -35,6 +36,7 @@
     <string name="nome">Nome Completo</string>
     <string name="nota_alterada">Nota Alterada!</string>
     <string name="nota_excluida">Nota Excluída!</string>
+    <string name="nota_cadastrada">Nota Cadastrada!</string>
     <string name="sem_permissao_acesso_mapa">Sem permissão de acesso!</string>
     <string name="senha">Senha</string>
     <string name="slogan">Sua carga na sua mão</string>
@@ -54,4 +56,5 @@
     <string name="versao">Versão 1.0</string>
     <string name="msg_subscribed">Registrado no topico geral</string>
     <string name="msg_subscribe_failed">Falha no registro do topico geral</string>
+    <string name="nf_entregue">NF Entregue?</string>
 </resources>

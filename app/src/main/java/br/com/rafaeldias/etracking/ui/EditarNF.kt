@@ -9,11 +9,11 @@ import android.os.Bundle;
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment;
-import android.util.Log
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText
+import android.widget.Switch
 import br.com.rafaeldias.etracking.R;
 import android.widget.Toast
 import br.com.rafaeldias.etracking.database.AppDatabase
@@ -21,7 +21,7 @@ import br.com.rafaeldias.etracking.model.Notas
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_editarnf.*
 import kotlinx.android.synthetic.main.fragment_editarnf.btCriarConta
-import kotlinx.android.synthetic.main.fragment_editarnf.etCNPJ
+import kotlinx.android.synthetic.main.fragment_editarnf.etNome
 import kotlinx.android.synthetic.main.fragment_editarnf.etEnderecoEntrega
 import kotlinx.android.synthetic.main.fragment_editarnf.etSenha
 import kotlinx.android.synthetic.main.fragment_editarnf.etEmail
@@ -39,12 +39,14 @@ class EditarNF : Fragment(){
     private var mercadoria: String = ""
     private var enderecoEntrega: String = ""
     private var telefoneContato: String = ""
+    private var entregue: Boolean = false
 
     private lateinit var cnpj: EditText
     private lateinit var nf: EditText
     private lateinit var merc: EditText
     private lateinit var tel: EditText
     private lateinit var end: EditText
+    private lateinit var ent: Switch
     private  var emailUsuario: String? = ""
 
 
@@ -60,6 +62,7 @@ class EditarNF : Fragment(){
                 mercadoria = bundle.getString("mercadoria")
                 enderecoEntrega = bundle.getString("enderecoEntrega")
                 telefoneContato = bundle.getString("telefoneContato")
+                entregue = bundle.getBoolean("entregue")
             }
             var view = inflater.inflate(R.layout.fragment_editarnf, container, false)
     return view
@@ -74,33 +77,51 @@ class EditarNF : Fragment(){
         val Usuario = mAuth.currentUser
         emailUsuario = Usuario!!.email
 
-        etCNPJ.setText(cnpjRemetente)
+        etNome.setText(cnpjRemetente)
         etEmail.setText(numeroNF)
         etSenha.setText(mercadoria)
         etTelefoneContato.setText(telefoneContato)
         etEnderecoEntrega.setText(enderecoEntrega)
-        cnpj = view.findViewById(R.id.etCNPJ)
+        swEntregue.isChecked = entregue
+        cnpj = view.findViewById(R.id.etNome)
         nf = view.findViewById(R.id.etEmail)
         merc = view.findViewById(R.id.etSenha)
         tel = view.findViewById(R.id.etTelefoneContato)
         end = view.findViewById(R.id.etEnderecoEntrega)
+        ent = view.findViewById(R.id.swEntregue)
 
         ivCall.setOnClickListener(){
             var uri = Uri.parse(tel.text.toString())
-            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uri))
-            if (ActivityCompat.checkSelfPermission(context!!,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 1)
+            if (uri != null) {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + uri))
+                if (ActivityCompat.checkSelfPermission(context!!,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 1)
+                } else {
+                    startActivity(intent)
+                }
             } else {
-                startActivity(intent)
+                Toast.makeText(
+                    activity,
+                    getString(R.string.toast_campos_em_branco),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
         ivMaps.setOnClickListener(){
             var endereco = end.text.toString()
-            val intent = Intent(activity, MapsActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.putExtra("endereco",endereco)
-            startActivity(intent)
+            if (endereco != "" && endereco != null) {
+                val intent = Intent(activity, MapsActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.putExtra("endereco", endereco)
+                startActivity(intent)
+            } else {
+                Toast.makeText(
+                    activity,
+                    getString(R.string.toast_campos_em_branco),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         ivShare.setOnClickListener(){
@@ -110,6 +131,11 @@ class EditarNF : Fragment(){
             shareContent += " / Endereço Entrega: " + end.text.toString()
             shareContent += " / Telefone Contato: " + tel.text.toString()
             shareContent += " / CNPJ Remetente: " + cnpj.text.toString()
+            if (ent.isChecked == true) {
+                shareContent += " / Entrega Realizada: Sim"
+            } else {
+                shareContent += " / Entrega Realizada: Não"
+            }
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
             intent.type = ("text/html")
@@ -122,15 +148,15 @@ class EditarNF : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val db = AppDatabase.getDatabase(activity!!.applicationContext)
-        notasObj = Notas(idNota.toLong(),"","","","","","")
+        notasObj = Notas(idNota.toLong(),"","","","","","",false)
 
-        btExcluir.setOnClickListener(){
+        btExcluirNF.setOnClickListener(){
             if (idNota != "") {
                 excluirNF(db!!).execute(notasObj)
                 Toast.makeText(context, getString(R.string.nota_excluida), Toast.LENGTH_LONG).show()
                 Handler().postDelayed({
                     telaInicial()
-                }, 3000)
+                }, 2500)
             } else {
                 Toast.makeText(
                     activity,
@@ -172,8 +198,9 @@ class EditarNF : Fragment(){
         val mercnovo = merc.text.toString()
         val telnovo = tel.text.toString()
         val endnovo = end.text.toString()
+        val entregue = swEntregue.isChecked
         override fun doInBackground(vararg params: Notas): String {
-            db.NotasDao().atualizaNF(params[0].id,cnpjnovo,nfnovo,mercnovo,emailUsuario,telnovo,endnovo)
+            db.NotasDao().atualizaNF(params[0].id,cnpjnovo,nfnovo,mercnovo,emailUsuario,telnovo,endnovo,entregue)
             return ""
         }
 

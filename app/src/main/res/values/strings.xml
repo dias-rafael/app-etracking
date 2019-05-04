@@ -28,6 +28,7 @@
     <string name="img_topo_signup">Signup Image Top</string>
     <string name="img_topo_sobre">About Image Top</string>
     <string name="logar">Login</string>
+    <string name="aguarde">Wait...</string>
     <string name="manter_conectado">Stay Connected</string>
     <string name="menu_desconectar">Disconnect</string>
     <string name="menu_fechar">Close</string>
@@ -38,7 +39,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="nome">Full Name</string>
     <string name="nota_alterada">Altered Invoice!</string>
-    <string name="nota_excluida">Deleted Invoice</string>
+    <string name="nota_excluida">Deleted Invoice!</string>
+    <string name="nota_cadastrada">Added Invoice!</string>
     <string name="sem_permissao_acesso_mapa">Access Denied!</string>
     <string name="senha">Password</string>
     <string name="slogan">Your load in your hand</string>
@@ -58,4 +60,5 @@
     <string name="versao">Version 1.0</string>
     <string name="msg_subscribed">Subscribed to general topic</string>
     <string name="msg_subscribe_failed">Failed to subscribe to weather topic</string>
+    <string name="nf_entregue">Invoice Delivered?</string>
 </resources>

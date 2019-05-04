@@ -19,7 +19,7 @@
                     android:text="@string/card_cnpj_remetente"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvCNPJ" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/tvNome" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
@@ -32,22 +32,22 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/etCNPJ" android:layout_marginStart="8dp"
+                    android:id="@+id/etNome" android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvCNPJ" android:textSize="@dimen/form_font_size"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNome" android:textSize="@dimen/form_font_size"
                     android:textColor="@color/colorPrimaryText" android:autofillHints=""/>
             <TextView
                     android:text="@string/card_nota_fiscal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvNota" app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/tvEmail" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/etCNPJ" android:textSize="@dimen/label_font_size"
+                    app:layout_constraintTop_toBottomOf="@+id/etNome" android:textSize="@dimen/label_font_size"
                     android:textColor="@color/colorSecondaryText"/>
             <EditText
                     android:layout_width="0dp"
@@ -58,7 +58,7 @@
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNota" android:textSize="@dimen/form_font_size"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmail" android:textSize="@dimen/form_font_size"
                     android:textColor="@color/colorPrimaryText" android:inputType="number" android:autofillHints=""/>
             <TextView
                     android:text="@string/card_mercadoria"
